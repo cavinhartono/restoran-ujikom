@@ -1,0 +1,149 @@
+@import url("./color_font.css");
+
+.container,
+.content,
+.content .homepage,
+.gallery,
+.contact,
+.footer {
+  position: relative;
+  width: 100%;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px 100px;
+  justify-content: space-between !important;
+  background: #fff;
+  box-shadow: var(--bx-shadow-first);
+  z-index: 5;
+}
+
+.logo {
+  height: 50px;
+}
+
+.nav {
+  display: flex;
+  gap: 24px;
+}
+
+.nav .list {
+  list-style-type: none;
+  color: var(--black-secondary);
+  font-size: 20px;
+}
+
+.list.active .link {
+  color: var(--black-primary);
+}
+
+.list .link {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
+}
+
+.content {
+  margin-top: 80px;
+}
+
+.content .homepage .photo {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+
+.header,
+.content .homepage .title,
+.gallery,
+.food,
+.food .list,
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content .homepage .title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--white-primary);
+  font-weight: normal;
+  z-index: 10;
+}
+
+.gallery {
+  flex-direction: column;
+}
+
+.food {
+  padding: var(--lg) 0;
+  flex-wrap: wrap;
+}
+
+.food .list {
+  width: 100%;
+  border-bottom: 1px dashed var(--first-color);
+  justify-content: flex-start !important;
+  padding: var(--md);
+  gap: var(--md);
+}
+
+.food_content {
+  line-height: var(--lg);
+}
+
+.food_content .subtitle {
+  margin-top: var(--md);
+}
+
+.food_image {
+  height: 250px;
+}
+
+.food_image .photo {
+  border-radius: 12px;
+}
+
+.gallery {
+  padding: 100px;
+}
+
+.contact {
+  padding: 0 100px;
+}
+
+.contact .contact_container {
+  width: 100%;
+}
+
+.input {
+  margin-top: var(--md);
+  width: 100%;
+  margin-bottom: var(--md);
+}
+
+.input .list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sm);
+}
+
+.input.two {
+  display: flex;
+  gap: var(--md);
+}
+
+.footer {
+  padding: var(--md);
+  text-align: center;
+  font-weight: 600;
+}

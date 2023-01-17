@@ -1,0 +1,81 @@
+@font-face {
+  font-family: "DM Serif Display";
+  src: url("../fonts/serif/DMSerifText-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Sharp Sans";
+  src: url("../fonts/sansserif/SharpSans.otf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Sharp Sans";
+  src: url("../fonts/sansserif/SharpSansMedium.otf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Sharp Sans";
+  src: url("../fonts/sansserif/SharpSansSemibold.otf");
+  font-weight: 600;
+}
+
+:root {
+  --first-color: hsl(34, 56%, 57%);
+  --second-color: hsl(2, 64%, 58%);
+  --white-primary: rgb(255, 255, 255);
+  --white-secondary: rgba(255, 255, 255, 0.75);
+  --black-primary: rgb(34, 34, 34);
+  --black-secondary: rgba(34, 34, 34, 0.75);
+  --bx-shadow-first: 0px 8px 45px rgba(34, 34, 34, 0.1);
+  --font-first: "Sharp Sans", sans-serif;
+  --font-second: "DM Serif Display", serif;
+  --sm: 12px;
+  --rg: 18px;
+  --md: 24px;
+  --lg: 36px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--font-first);
+  list-style-type: none;
+}
+
+.photo {
+  width: initial;
+  height: inherit;
+}
+
+input,
+textarea {
+  outline: none;
+  padding: var(--rg);
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--black-primary);
+}
+
+.title {
+  position: relative;
+  color: var(--black-primary);
+  font-family: var(--font-second);
+  font-size: var(--lg);
+}
+
+.subtitle {
+  font-weight: 500;
+  font-size: var(--rg);
+  color: var(--black-secondary);
+}
+
+.subtitle sup {
+  color: var(--second-color);
+}
