@@ -43,6 +43,7 @@
   box-sizing: border-box;
   font-family: var(--font-first);
   list-style-type: none;
+  text-decoration: none;
 }
 
 .photo {
