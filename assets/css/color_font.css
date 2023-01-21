@@ -29,6 +29,7 @@
   --black-primary: rgb(34, 34, 34);
   --black-secondary: rgba(34, 34, 34, 0.75);
   --bx-shadow-first: 0px 8px 45px rgba(34, 34, 34, 0.1);
+  --bx-shadow-btn: 0px 12px 45px rgba(34, 34, 34, 0.2);
   --font-first: "Sharp Sans", sans-serif;
   --font-second: "DM Serif Display", serif;
   --sm: 12px;
@@ -57,6 +58,7 @@ textarea {
   padding: var(--rg);
   border: 1px solid #ddd;
   border-radius: 4px;
+  resize: none;
 }
 
 input::placeholder,
@@ -79,4 +81,24 @@ textarea::placeholder {
 
 .subtitle sup {
   color: var(--second-color);
+}
+
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 24px;
+  background: transparent;
+  border-radius: 4px;
+  box-shadow: var(--bx-shadow-btn);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  box-shadow: none;
+}
+
+.primary {
+  background: var(--first-color);
+  color: var(--white-primary);
 }

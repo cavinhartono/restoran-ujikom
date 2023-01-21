@@ -123,6 +123,28 @@
   width: 100%;
 }
 
+.contact .content {
+  display: flex;
+  gap: 50px;
+}
+
+.info_location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--first-color);
+}
+
+svg {
+  width: var(--md);
+  height: var(--md);
+  color: inherit;
+}
+
+.content .location {
+  max-width: 600px;
+}
+
 .input {
   margin-top: var(--md);
   width: 100%;
@@ -141,8 +163,28 @@
   gap: var(--md);
 }
 
+.form {
+  width: 100%;
+}
+
 .footer {
   padding: var(--md);
   text-align: center;
   font-weight: 600;
+}
+
+.maps {
+  width: 500px;
+  height: 300px;
+}
+
+.maps,
+.schedule {
+  margin: var(--md) 0;
+}
+
+.schedule .list {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }

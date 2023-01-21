@@ -58,16 +58,3 @@ td {
   display: flex;
   justify-content: flex-end;
 }
-
-.btn {
-  border: none;
-  outline: none;
-  padding: 12px 24px;
-  background: transparent;
-  border-radius: 4px;
-}
-
-.primary {
-  background: var(--first-color);
-  color: var(--white-primary);
-}
