@@ -1,0 +1,5 @@
+-- Active: 1669261517853@@127.0.0.1@3306
+
+CREATE DATABASE hummingbird;
+
+CREATE TABLE 

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/css/auth.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="login">
+      <div class="blurBx">
+        <div class="box SignIn">
+          <h1>Already on a Account</h1>
+          <button class="btn_SignIn">Sign In</button>
+        </div>
+        <div class="box SignUp">
+          <h1>Don't have an a Account?</h1>
+          <button class="btn_SignUp">Sign Up</button>
+        </div>
+      </div>
+      <div class="loginBx">
+        <div class="form SignIn">
+          <form>
+            <h1>Login</h1>
+            <input type="text" placeholder="Username" />
+            <div class="passwordBx">
+              <input type="password" id="showPassword" placeholder="Password" />
+              <span class="lihatPassword"><span id="eye"></span></span>
+            </div>
+            <input type="submit" value="Login" />
+          </form>
+        </div>
+        <div class="form SignUp">
+          <form>
+            <h1>Register</h1>
+            <input type="text" placeholder="Email" />
+            <input type="text" placeholder="Username" />
+            <div class="passwordBx">
+              <input type="password" id="showPassword" placeholder="Password" />
+              <span class="lihatPassword"><span id="eye"></span></span>
+            </div>
+            <div class="passwordBx">
+              <input
+                type="password"
+                id="showPassword"
+                placeholder="Confirm Password"
+              />
+              <span class="lihatPassword"><span id="eye"></span></span>
+            </div>
+            <input type="submit" value="Register" />
+          </form>
+        </div>
+      </div>
+    </section>
+    <script>
+      var eye = document.querySelector("#eye");
+      var password = document.querySelector("#showPassword");
+
+      showHidePassword = () => {
+        if (password.type === "password") {
+          password.type = "text";
+          eye.classList.add("aktif");
+        } else {
+          password.type = "password";
+          eye.classList.remove("aktif");
+        }
+      };
+      eye.addEventListener("click", showHidePassword);
+
+      var body = document.querySelector("body");
+      var login = document.querySelector(".login");
+      var btn_SignUp = document.querySelector(".btn_SignUp");
+      var btn_SignIn = document.querySelector(".btn_SignIn");
+
+      btn_SignUp.onclick = function () {
+        body.classList.add("aktif");
+        login.classList.add("aktif");
+      };
+
+      btn_SignIn.onclick = function () {
+        body.classList.remove("aktif");
+        login.classList.remove("aktif");
+      };
+    </script>
+  </body>
+</html>
