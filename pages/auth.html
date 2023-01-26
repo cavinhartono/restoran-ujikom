@@ -54,19 +54,22 @@
       </div>
     </section>
     <script>
-      var eye = document.querySelector("#eye");
-      var password = document.querySelector("#showPassword");
+      var eye = document.querySelectorAll("#eye");
+      var password = document.querySelectorAll("#showPassword");
 
-      showHidePassword = () => {
-        if (password.type === "password") {
-          password.type = "text";
-          eye.classList.add("aktif");
-        } else {
-          password.type = "password";
-          eye.classList.remove("aktif");
-        }
-      };
-      eye.addEventListener("click", showHidePassword);
+      eye.forEach((element) => {
+        element.addEventListener("click", () => {
+          password.forEach((item) => {
+            if (item.type === "password") {
+              element.classList.add("aktif");
+              item.type = "text";
+            } else {
+              element.classList.remove("aktif");
+              item.type = "password";
+            }
+          });
+        });
+      });
 
       var body = document.querySelector("body");
       var login = document.querySelector(".login");

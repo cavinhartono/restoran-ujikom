@@ -21,11 +21,18 @@
   font-weight: 600;
 }
 
+@font-face {
+  font-family: "Sharp Sans";
+  src: url("../fonts/sansserif/SharpSansBold.otf");
+  font-weight: 700;
+}
+
 :root {
   --first-color: hsl(34, 56%, 57%);
   --second-color: hsl(2, 64%, 58%);
   --white-primary: rgb(255, 255, 255);
   --white-secondary: rgba(255, 255, 255, 0.75);
+  --white-third: rgb(249, 249, 249);
   --black-primary: rgb(34, 34, 34);
   --black-secondary: rgba(34, 34, 34, 0.75);
   --bx-shadow-first: 0px 8px 45px rgba(34, 34, 34, 0.1);
