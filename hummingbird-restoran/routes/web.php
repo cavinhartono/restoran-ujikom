@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,25 +25,39 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 Route::middleware('IsLogin')->group(function () {
-    Route::get('/', [AuthController::class, 'dashboard']);
+    if (Route::middleware('can:transaksi') && Route::middleware('can:menu') && Route::middleware('can:laporan')) {
+        Route::get('/', [AuthController::class, 'homepage']);
+    } else {
+        Route::get('/dashboard', [AuthController::class, 'dashboard']);
+    }
 
-    Route::controller(ProductsController::class)->group(function () {
-        Route::get('/menu', 'view');
-        Route::get('/menu/add', 'add');
-        Route::post('/menu/add/store', 'store');
-        Route::get('/menu/{id}/edit', 'edit');
-        Route::get('/menu/{id}/view', 'view');
-        Route::put('/menu/{id}/update', 'update');
-        Route::delete('/menu/delete', 'destroy');
+    Route::middleware('can:menu')->group(function () {
+        Route::controller(ProductsController::class)->group(function () {
+            Route::get('/menu', 'view');
+            Route::get('/menu/add', 'add');
+            Route::post('/menu/add/store', 'store');
+            Route::get('/menu/{id}/edit', 'edit');
+            Route::get('/menu/{id}/view', 'view');
+            Route::put('/menu/{id}/update', 'update');
+            Route::delete('/menu/delete', 'destroy');
+        });
     });
 
-    Route::controller(TransactionController::class)->group(function () {
-        Route::get('/transaction', 'view');
-        Route::get('/transaction/add', 'add');
-        Route::post('/transaction/add/store', 'store');
-        Route::get('/transaction/{id}/edit', 'edit');
-        Route::get('/transaction/{id}/view', 'view');
-        Route::put('/transaction/{id}/update', 'update');
-        Route::delete('/transaction/delete', 'destroy');
+    Route::middleware('can:transaksi')->group(function () {
+        Route::controller(TransactionController::class)->group(function () {
+            Route::get('/transaction', 'view');
+            Route::get('/transaction/add', 'add');
+            Route::post('/transaction/add/store', 'store');
+            Route::get('/transaction/{id}/edit', 'edit');
+            Route::get('/transaction/{id}/view', 'view');
+            Route::put('/transaction/{id}/update', 'update');
+            Route::delete('/transaction/delete', 'destroy');
+        });
+    });
+
+    Route::middleware('can:laporan')->group(function () {
+        Route::controller(ReportController::class)->group(function () {
+            Route::get('/transaction', 'view');
+        });
     });
 });

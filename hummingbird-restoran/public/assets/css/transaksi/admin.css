@@ -1,0 +1,44 @@
+@import url("/assets/css/transaksi/style.css");
+
+.content_header {
+  justify-content: flex-end !important;
+}
+
+.dates {
+  display: flex;
+  gap: 12px;
+}
+
+.action {
+  justify-content: start;
+}
+
+.fliter {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--white-primary);
+  box-shadow: var(--bx-shadow-first);
+  cursor: pointer;
+}
+
+.fliter span {
+  position: absolute;
+  background: var(--black-primary);
+  border-radius: 8px;
+}
+
+.fliter span:nth-child(1) {
+  width: 24px;
+}
+
+.fliter span:nth-child(2) {
+  width: 16px;
+}
+
+.fliter span:nth-child(3) {
+  width: 12px;
+}
