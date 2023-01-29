@@ -11,7 +11,7 @@ class AuthController extends Controller
 {
     public function index()
     {
-        return view('auth');
+        return view('auth.index');
     }
 
     public function login(Request $request)
@@ -74,7 +74,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($get)) {
             $name = explode(' ', trim(Auth::user()->name))[0];
-            return view('dashboard')->with('success', "Selamat datang, $name.");
+            return view('guest.index')->with('success', "Selamat datang, $name.");
         } else {
             return redirect('/auth')->withErrors('Email dan Password harus disesuaikan');
         }
@@ -88,11 +88,12 @@ class AuthController extends Controller
 
     public function homepage()
     {
-        return view("roles.index");
+        return view("guest.index");
     }
 
     public function dashboard()
     {
-        return view('dashboard');
+        $users = User::with('roles')->whereNotNull('last_seen')->orderBy('last_seen', "DESC")->paginate(5);
+        return view('dashboard.index', compact(['users']));
     }
 }

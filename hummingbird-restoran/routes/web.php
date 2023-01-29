@@ -22,24 +22,22 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/auth/login', 'login');
     Route::post('/auth/register', 'register');
     Route::get('/auth/logout', 'logout')->middleware('IsLogin');
+    Route::get('/dashboard', [AuthController::class, 'dashboard'])->middleware('IsLogin');
+    Route::get('/dashboard/{id}', [AuthController::class, 'account'])->middleware('IsLogin');
 });
 
 Route::middleware('IsLogin')->group(function () {
-    if (Route::middleware('can:transaksi') && Route::middleware('can:menu') && Route::middleware('can:laporan')) {
-        Route::get('/', [AuthController::class, 'homepage']);
-    } else {
-        Route::get('/dashboard', [AuthController::class, 'dashboard']);
-    }
+    Route::get('/', [AuthController::class, 'homepage']);
+    // if (Route::middleware('can:transaksi') && Route::middleware('can:menu') && Route::middleware('can:laporan')) {
+    // }
 
     Route::middleware('can:menu')->group(function () {
         Route::controller(ProductsController::class)->group(function () {
-            Route::get('/menu', 'view');
-            Route::get('/menu/add', 'add');
-            Route::post('/menu/add/store', 'store');
+            Route::get('/menu', 'index');
+            Route::get('/menu/create', 'create');
+            Route::post('/menu/store', 'store');
             Route::get('/menu/{id}/edit', 'edit');
-            Route::get('/menu/{id}/view', 'view');
             Route::put('/menu/{id}/update', 'update');
-            Route::delete('/menu/delete', 'destroy');
         });
     });
 

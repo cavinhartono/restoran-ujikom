@@ -1,4 +1,4 @@
-@extends('/layouts/master')
+@extends('/layouts.master')
 
 @push('css')
 <link rel="stylesheet" href="{{ asset('assets/css/style.css') }} ">
@@ -24,7 +24,7 @@
     <ul class="food">
       <li class="list" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="900" data-aos-duration="700">
         <div class="food_image">
-          <img src="{{ asset('assets/images/fried-kway-teow.jpeg" alt="" class="photo" />
+          <img src="{{ asset('assets/images/fried-kway-teow.jpeg') }}" alt="" class="photo" />
         </div>
         <div class="food_content">
           <h2 class="title">Kway Teow Goreng</h2>

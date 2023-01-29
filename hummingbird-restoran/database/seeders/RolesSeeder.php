@@ -47,28 +47,49 @@ class RolesSeeder extends Seeder
                 'password' => Hash::make('kevin123')
             ]);
 
+            $kasir1 = User::create([
+                'name' => 'Nenny Kusanti',
+                'email' => 'nenny@gmail.com',
+                'password' => Hash::make('nenny123')
+            ]);
+
+            $kasir2 = User::create([
+                'name' => 'I Gusti Pratama',
+                'email' => 'gusti@gmail.com',
+                'password' => Hash::make('gusti123')
+            ]);
+
             Permission::create(['name' => 'transaksi']);
             Permission::create(['name' => 'menu']);
             Permission::create(['name' => 'laporan']);
+            Permission::create(['name' => 'aktivitas']);
+            Permission::create(['name' => 'user']);
 
             $admin = Role::create(['name' => 'admin']);
             $manajer = Role::create(['name' => 'manajer']);
             $customer = Role::create(['name' => 'customer']);
+            $kasir = Role::create(['name' => 'kasir']);
 
             $manajer->givePermissionTo([
                 'transaksi',
                 'menu',
-                'laporan'
+                'laporan',
+                'aktivitas',
             ]);
 
+            $kasir->givePermissionTo(['transaksi', 'aktivitas']);
+
             $admin->givePermissionTo([
-                'transaksi',
+                'aktivitas',
+                'user'
             ]);
 
             $manajer1->assignRole('manajer');
             $admin1->assignRole('admin');
             $admin2->assignRole('admin');
             $admin3->assignRole('admin');
+            $kasir1->assignRole('kasir');
+            $kasir2->assignRole('kasir');
             DB::commit();
         } catch (\Throwable $th) {
             DB::rollBack();

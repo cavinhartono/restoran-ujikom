@@ -1,9 +1,5 @@
-@extends("master")
+@extends("layouts.master")
 
-@push('title')
-Dashboard
+@push('css')
+<link rel="stylesheet" href="{{ asset('assets/css/manajer/style.css') }}">
 @endpush
-
-@section('content')
-<x-navigation />
-@endsection
